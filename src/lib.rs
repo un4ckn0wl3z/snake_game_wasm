@@ -1,6 +1,6 @@
 use wasm_bindgen::prelude::*;
 
-extern crate wee_alloc;
+// extern crate wee_alloc;
 
 // Use `wee_alloc` as the global allocator.
 #[global_allocator]

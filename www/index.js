@@ -1,7 +1,7 @@
 import init, { World } from 'snake_game_wasm';
 
 init().then(_ => {
-  const CELL_SIZE = 10;
+  const CELL_SIZE = 15;
 
   const world = World.new();
   const worldWidth = world.width();

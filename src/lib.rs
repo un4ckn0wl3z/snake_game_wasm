@@ -18,6 +18,12 @@ extern {
     pub fn alert(s: &str);
 }
 
+struct SnakeCell(usize);
+
+struct Snake {
+    body: Vec<SnakeCell>
+}
+
 #[wasm_bindgen]
 struct World {
      width: usize

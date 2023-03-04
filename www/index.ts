@@ -42,6 +42,7 @@ init().then(_ => {
       CELL_SIZE,
       CELL_SIZE
     );
+    
 
     ctx.stroke();
   }

@@ -6,9 +6,9 @@ init().then(_ => {
   const world = World.new();
   const worldWidth = world.width();
 
-  const canvas = document.getElementById("snake-canvas");
+  const canvas = <HTMLCanvasElement> document.getElementById("snake-canvas");
   const ctx = canvas.getContext("2d");
-  canvas.hight = worldWidth * CELL_SIZE;
+  canvas.height = worldWidth * CELL_SIZE;
   canvas.width = worldWidth * CELL_SIZE;
 
   function drawWorld(){
@@ -51,7 +51,7 @@ init().then(_ => {
 
   function update(){
     setTimeout(() => {
-      ctx.clearRect(0, 0, canvas.width, canvas.hight);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
       world.update();
       paint();
       // the method take a callback to invoked before the next repaint

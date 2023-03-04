@@ -3,7 +3,7 @@ import init, { World } from 'snake_game_wasm';
 init().then(_ => {
   const CELL_SIZE = 20;
   const WORLD_WIDTH = 8;
-  const SNAKE_SPANW_IDX = 2;
+  const SNAKE_SPANW_IDX = Date.now() % (WORLD_WIDTH * WORLD_WIDTH);
 
   const world = World.new(WORLD_WIDTH, SNAKE_SPANW_IDX);
   const worldWidth = world.width();

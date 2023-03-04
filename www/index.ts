@@ -1,9 +1,11 @@
 import init, { World } from 'snake_game_wasm';
 
 init().then(_ => {
-  const CELL_SIZE = 15;
+  const CELL_SIZE = 20;
+  const WORLD_WIDTH = 8;
+  const SNAKE_SPANW_IDX = 2;
 
-  const world = World.new();
+  const world = World.new(WORLD_WIDTH, SNAKE_SPANW_IDX);
   const worldWidth = world.width();
 
   const canvas = <HTMLCanvasElement> document.getElementById("snake-canvas");
@@ -50,13 +52,14 @@ init().then(_ => {
   }
 
   function update(){
+    const fps = 10;
     setTimeout(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       world.update();
       paint();
       // the method take a callback to invoked before the next repaint
       requestAnimationFrame(update);
-    }, 100);
+    }, 1000 / fps);
   }
 
   paint();

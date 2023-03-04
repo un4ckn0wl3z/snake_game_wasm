@@ -39,9 +39,8 @@ pub struct World {
 
 #[wasm_bindgen]
 impl World {
-    pub fn new () -> Self {
-        let width = 8;
-        Self { width, size: width * width, snake: Snake::new(10) }
+    pub fn new (width: usize, snake_idx: usize) -> Self {
+        Self { width, size: width * width, snake: Snake::new(snake_idx) }
     }
 
     pub fn width(&self) -> usize {

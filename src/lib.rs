@@ -24,18 +24,36 @@ struct Snake {
     body: Vec<SnakeCell>
 }
 
+impl Snake {
+    fn new(spawn_index: usize) -> Self {
+        Snake { body: vec![SnakeCell(spawn_index)] }
+    }
+}
+
 #[wasm_bindgen]
-struct World {
-     width: usize
+pub struct World {
+     width: usize,
+     size: usize,
+     snake: Snake
 }
 
 #[wasm_bindgen]
 impl World {
     pub fn new () -> Self {
-        Self { width: 8 }
+        let width = 8;
+        Self { width, size: width * width, snake: Snake::new(10) }
     }
 
     pub fn width(&self) -> usize {
         self.width
+    }
+
+    pub fn snake_head_idx(&self) -> usize {
+        self.snake.body[0].0
+    }
+
+    pub fn update(&mut self) {
+        let snake_idx = self.snake_head_idx();
+        self.snake.body[0].0 = (snake_idx + 1) % self.size;
     }
 }
